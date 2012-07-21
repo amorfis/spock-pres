@@ -91,6 +91,38 @@ def 'Should return surname Stawicki if firstname is Paweł'() {
   </pre>
 </section>
 
+<section class="slide" id="simple-test">
+  <h2>Mock method return specified in <em>then</em></h2>
+  <pre class="brush: groovy">
+@Test
+def 'Should return surname Stawicki if firstname is Paweł. Simplier method'() {
+  setup:
+  def Dao dao = Mock()
+  def dbService = new DbService(dao)
+
+  when:
+  def result = dbService.getSurname("Paweł")
+
+  then:
+  result == "Stawicki"
+  1 * dao.findByFirstname("Paweł") >> new Person(
+          firstname: "Paweł", surname: "Stawicki")
+}
+  </pre>
+</section>
+
+<section class="slide" id="simple-test">
+  <h2>Common variables are new for each test</h2>
+  <pre class="brush: groovy">
+class TestMocksRenewal extends Specification {
+
+  //Different for every test.
+  //Every test starts with counter 0.
+  def counter = 0
+  def Counter objectCounter = Mock()
+  </pre>
+</section>
+
 <section class="slide" id="with-setup">
   <h2>Nice error messages</h2>
   <pre class="brush: groovy">

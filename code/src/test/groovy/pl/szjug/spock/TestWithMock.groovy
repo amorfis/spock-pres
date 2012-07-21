@@ -15,7 +15,6 @@ class TestWithMock extends Specification {
     setup:
     def Dao dao = Mock()
     def dbService = new DbService(dao)
-
     dao.findByFirstname("Paweł") >> new Person(
             firstname: "Paweł", surname: "Stawicki")
 
@@ -24,6 +23,21 @@ class TestWithMock extends Specification {
 
     then:
     result == "Stawicki"
+  }
+
+  @Test
+  def 'Should return surname Stawicki if firstname is Paweł. Simplier method'() {
+    setup:
+    def Dao dao = Mock()
+    def dbService = new DbService(dao)
+
+    when:
+    def result = dbService.getSurname("Paweł")
+
+    then:
+    result == "Stawicki"
+    1 * dao.findByFirstname("Paweł") >> new Person(
+            firstname: "Paweł", surname: "Stawicki")
   }
 
 }
