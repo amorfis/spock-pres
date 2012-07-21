@@ -4,3 +4,4 @@ deck.js/progress/
 .idea
 *.iml
 target
+out
