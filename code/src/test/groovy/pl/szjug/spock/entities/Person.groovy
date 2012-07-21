@@ -1,4 +1,4 @@
-package pl.szjug.spock
+package pl.szjug.spock.entities
 
 /**
  * @author Pawel Stawicki 

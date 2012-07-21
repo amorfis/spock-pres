@@ -70,9 +70,57 @@ def 'Should return true if number is even'() {
   </pre>
 </section>
 
-<section class="slide" id="with-setup">
-  <h2>Simple test</h2>
+<section class="slide" id="simple-test">
+  <h2>Test with mock</h2>
   <pre class="brush: groovy">
+@Test
+def 'Should return surname Stawicki if firstname is Paweł'() {
+  setup:
+  def Dao dao = Mock()
+  def dbService = new DbService(dao)
+
+  dao.findByFirstname("Paweł") >> new Person(
+    firstname: "Paweł", surname: "Stawicki")
+
+  when:
+  def result = dbService.getSurname("Paweł")
+
+  then:
+  result == "Stawicki"
+}
+  </pre>
+</section>
+
+<section class="slide" id="with-setup">
+  <h2>Nice error messages</h2>
+  <pre class="brush: groovy">
+then:
+parseDouble(bigDecimal.doubleValue().toString()) == 1
+  </pre>
+  <pre>
+Condition not satisfied:
+
+parseDouble(bigDecimal.doubleValue().toString()) == 1
+|           |          |             |           |
+100.0       100        100.0         100.0       false
+  </pre>
+</section>
+
+<section class="slide" id="with-setup">
+  <h2>also when comparing strings</h2>
+  <pre class="brush: groovy">
+then:
+pineapple == "pipe arrays"
+  </pre>
+  <pre>
+Condition not satisfied:
+
+pineapple == "pipe arrays"
+|         |
+pineapple false
+          7 differences (36% similarity)
+          pi(n)e(-)a(pple-)
+          pi(p)e( )a(rrays)
   </pre>
 </section>
 

@@ -2,6 +2,7 @@ package pl.szjug.spock
 
 import org.junit.Test
 import spock.lang.Specification
+import pl.szjug.spock.entities.Person
 
 /**
  * @author Pawel Stawicki 
@@ -26,7 +27,7 @@ class Test2 extends Specification {
   }
 
   @Test
-  def 'Should return surname Gruchałą if firstname is Leszek'() {
+  def 'Should return surname Gruchała if firstname is Leszek'() {
     setup:
     dao.findByFirstname("Leszek") >> new Person(firstname: "Leszek", surname: "Gruchała")
 
