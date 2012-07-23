@@ -8,11 +8,10 @@ import spock.lang.Specification
  * @author Pawel Stawicki 
    @since 7/15/12 1:03 PM
  */
-class Test3 extends Specification {
+class TestMOckReturnWithClosure extends Specification {
 
   def Dao dao = Mock()
 
-  //Different for every test
   def employee = new Employee(firstname: "Jan", surname: "Kowalski", salary: 100)
 
   def dbService = new DbService(dao)
