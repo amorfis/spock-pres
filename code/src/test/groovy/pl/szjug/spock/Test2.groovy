@@ -38,4 +38,18 @@ class Test2 extends Specification {
     result == "Gruchała"
   }
 
+  @Test
+  def 'Should return surname Gruchała if firstname length is greater than 5'() {
+    setup:
+    dao.findByFirstname({it.length() > 5}) >>> [new Person(firstname: "Leszek", surname: "Gruchała"), new Person(firstname: "Paweł", surname: "Stawicki")]
+
+    when:
+    def result1 = dbService.getSurname("Leszek")
+    def result2 = dbService.getSurname("Leszek")
+
+    then:
+    result1 == "Gruchała"
+    result2 == "Gruchała"
+  }
+
 }

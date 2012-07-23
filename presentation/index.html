@@ -68,19 +68,20 @@ def 'Should return true if number is even'() {
   result == true
 }
   </pre>
+  <p>
+  Everything after <em>then:</em> should resolve to <b>true</b>
+  </p>
 </section>
 
 <section class="slide" id="simple-test">
   <h2>Test with mock</h2>
   <pre class="brush: groovy">
-@Test
 def 'Should return surname Stawicki if firstname is Paweł'() {
   setup:
   def Dao dao = Mock()
   def dbService = new DbService(dao)
-
   dao.findByFirstname("Paweł") >> new Person(
-    firstname: "Paweł", surname: "Stawicki")
+          firstname: "Paweł", surname: "Stawicki")
 
   when:
   def result = dbService.getSurname("Paweł")
@@ -124,6 +125,33 @@ class TestMocksRenewal extends Specification {
 </section>
 
 <section class="slide" id="with-setup">
+  <h2>Mock call matchers</h2>
+  <pre class="brush: groovy">
+dao.findByFirstname("Paweł")      //Specific argument
+dao.findByFirstname(_)            //Any argument
+dao.findByFirstname(_ as String)  //Any String
+dao.findByFirstname(!null)        //Non null
+dao.findByFirstname(!"Paweł")     //Everything that's
+                                  //not equal to "Paweł"
+dao.findByFirstname({it.length() > 3})  //Any argument which
+                                        //method length()
+                                        //result is greater than 3
+  </pre>
+</section>
+
+<section class="slide" id="with-setup">
+  <h2>Defind mock return with closures</h2>
+  <pre class="brush: groovy">
+setup:
+def Dao dao = Mock()
+dao.persist(_) >> { it[0] }
+  </pre>
+</section>
+
+
+
+
+<section class="slide" id="with-setup">
   <h2>Nice error messages</h2>
   <pre class="brush: groovy">
 then:
@@ -141,6 +169,8 @@ parseDouble(bigDecimal.doubleValue().toString()) == 1
 <section class="slide" id="with-setup">
   <h2>also when comparing strings</h2>
   <pre class="brush: groovy">
+def pineapple = "pineapple"
+
 then:
 pineapple == "pipe arrays"
   </pre>
