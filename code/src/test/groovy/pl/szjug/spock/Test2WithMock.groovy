@@ -8,7 +8,7 @@ import spock.lang.Specification
  * @author Pawel Stawicki 
    @since 7/15/12 1:03 PM
  */
-class TestWithMock extends Specification {
+class Test2WithMock extends Specification {
 
   @Test
   def 'Should return surname Stawicki if firstname is Paweł'() {

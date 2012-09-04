@@ -40,11 +40,11 @@
 <body class="deck-container">
 
 <!-- Begin slides -->
-<section class="slide" id="title-slide">
+<section class="slide">
   <h1>Spock</h1>
 </section>
 
-<section class="slide" id="how-to-overview">
+<section class="slide">
   <h2>Groovy method names</h2>
   <p>
     Any string can be method name in groovy
@@ -56,7 +56,7 @@ def 'Should return true if number is even'() {
   </pre></p>
 </section>
 
-<section class="slide" id="simple-test">
+<section class="slide">
   <h2>Simple test</h2>
   <pre class="brush: groovy">
 @Test
@@ -73,7 +73,7 @@ def 'Should return true if number is even'() {
   </p>
 </section>
 
-<section class="slide" id="simple-test">
+<section class="slide">
   <h2>Test with mock</h2>
   <pre class="brush: groovy">
 def 'Should return surname Stawicki if firstname is Paweł'() {
@@ -92,7 +92,7 @@ def 'Should return surname Stawicki if firstname is Paweł'() {
   </pre>
 </section>
 
-<section class="slide" id="simple-test">
+<section class="slide">
   <h2>Mock method return specified in <em>then</em></h2>
   <pre class="brush: groovy">
 @Test
@@ -112,7 +112,7 @@ def 'Should return surname Stawicki if firstname is Paweł. Simplier method'() {
   </pre>
 </section>
 
-<section class="slide" id="simple-test">
+<section class="slide">
   <h2>Common variables are new for each test</h2>
   <pre class="brush: groovy">
 class TestMocksRenewal extends Specification {
@@ -124,7 +124,7 @@ class TestMocksRenewal extends Specification {
   </pre>
 </section>
 
-<section class="slide" id="with-setup">
+<section class="slide">
   <h2>Mock call matchers</h2>
   <pre class="brush: groovy">
 dao.findByFirstname("Paweł")      //Specific argument
@@ -139,8 +139,8 @@ dao.findByFirstname({it.length() > 3})  //Any argument which
   </pre>
 </section>
 
-<section class="slide" id="with-setup">
-  <h2>Defind mock return with closures</h2>
+<section class="slide">
+  <h2>Define mock return with closures</h2>
   <pre class="brush: groovy">
 setup:
 def Dao dao = Mock()
@@ -148,10 +148,22 @@ dao.persist(_) >> { it[0] }
   </pre>
 </section>
 
+<section class="slide">
+  <h2>Verify parameter passed to mock with closures</h2>
+  <pre class="brush: groovy">
+then:
+1 * dao.persist({ it.length() > 3 })
+  </pre>
+</section>
 
+<section class="slide">
+  <h2>Parametrized methods</h2>
+  <pre class="brush: groovy">
+where:
+  </pre>
+</section>
 
-
-<section class="slide" id="with-setup">
+<section class="slide">
   <h2>Nice error messages</h2>
   <pre class="brush: groovy">
 then:
@@ -166,7 +178,7 @@ parseDouble(bigDecimal.doubleValue().toString()) == 1
   </pre>
 </section>
 
-<section class="slide" id="with-setup">
+<section class="slide">
   <h2>also when comparing strings</h2>
   <pre class="brush: groovy">
 def pineapple = "pineapple"

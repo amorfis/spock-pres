@@ -7,7 +7,7 @@ import spock.lang.Specification
  * @author Pawel Stawicki 
    @since 7/15/12 1:03 PM
  */
-class TestMocksRenewal extends Specification {
+class Test3MocksRenewal extends Specification {
 
   //Different for every test
   def counter = 0

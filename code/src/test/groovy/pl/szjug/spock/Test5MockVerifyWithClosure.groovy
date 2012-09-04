@@ -8,7 +8,7 @@ import spock.lang.Specification
  * @author Pawel Stawicki 
    @since 7/15/12 1:03 PM
  */
-class TestMockReturnWithClosure extends Specification {
+class Test5MockVerifyWithClosure extends Specification {
 
   def Dao dao = Mock()
 
@@ -21,12 +21,18 @@ class TestMockReturnWithClosure extends Specification {
   }
 
   @Test
-  def 'Should give raise to Employee and store in database'() {
+  def 'Should pass Employee to dao'() {
     when:
     def result = dbService.giveRaise(employee)
 
     then:
-    result.salary.compareTo(new BigDecimal(110)) == 0
+    1 * dao.persist( {
+      println it.dump()
+      assert it instanceof Employee
+      assert it.firstname == "Jan"
+      assert it.surname == "Kowalskii"
+      true
+    } )
   }
 
 }

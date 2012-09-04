@@ -7,7 +7,7 @@ import spock.lang.Specification
  * @author Pawel Stawicki 
    @since 7/15/12 1:03 PM
  */
-class TestSimple extends Specification {
+class Test1Simple extends Specification {
 
   //Different for every test
   def service = new NumbersService()
