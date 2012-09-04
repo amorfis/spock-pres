@@ -28,10 +28,37 @@ class Test5MockVerifyWithClosure extends Specification {
     then:
     1 * dao.persist( {
       println it.dump()
+      it instanceof Employee
+      it.firstname == "Jan"
+      it.surname == "Kowalski"
+    } )
+  }
+
+  @Test
+  def 'Should pass Employee to dao. Not nice error'() {
+    when:
+    def result = dbService.giveRaise(employee)
+
+    then:
+    1 * dao.persist( {
+      println it.dump()
+      it instanceof Employee
+      it.firstname == "Jan"
+      it.surname == "Nowak"
+    } )
+  }
+
+  @Test
+  def 'Should pass Employee to dao. Nice error with assert'() {
+    when:
+    def result = dbService.giveRaise(employee)
+
+    then:
+    1 * dao.persist( {
+      println it.dump()
       assert it instanceof Employee
       assert it.firstname == "Jan"
-      assert it.surname == "Kowalskii"
-      true
+      assert it.surname == "Nowak"
     } )
   }
 

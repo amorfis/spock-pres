@@ -213,6 +213,26 @@ pineapple false
 </section>
 
 
+<section class="slide">
+  <h2>Nice exceptions testing</h2>
+  <pre class="brush: groovy">
+  then:
+  Exception e = thrown()
+  e instanceof RuntimeException
+  e.message == "Could not run"
+  e.cause instanceof ArithmeticException
+  </pre>
+</section>
+
+<section class="slide">
+  <h2>@Timeout</h2>
+  <pre class="brush: groovy">
+  @Test
+  @Timeout(1) //In seconds
+  </pre>
+</section>
+
+
 <!-- deck.navigation snippet -->
 <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
 <a href="#" class="deck-next-link" title="Next">&#8594;</a>

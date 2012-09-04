@@ -9,7 +9,7 @@ import static java.lang.Double.parseDouble
  * @author Pawel Stawicki 
    @since 7/21/12 11:11 PM
  */
-class TestErrorMessages extends Specification {
+class Test7ErrorMessages extends Specification {
 
   @Test
   def 'Should show nice error message when calling many methods'() {
