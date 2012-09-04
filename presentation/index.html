@@ -159,7 +159,21 @@ then:
 <section class="slide">
   <h2>Parametrized methods</h2>
   <pre class="brush: groovy">
-where:
+@Test
+@Unroll
+def 'isEven should return #isEven for #number'() {
+  when:
+  def result = service.isEven(number)
+
+  then:
+  result == isEven
+
+  where:
+  number  | isEven
+  2       | true
+  3       | false
+  65      | false
+}
   </pre>
 </section>
 
