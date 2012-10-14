@@ -11,7 +11,6 @@ import spock.lang.Specification
 class Test5MockVerifyWithClosure extends Specification {
 
   def Dao dao = Mock()
-
   def employee = new Employee(firstname: "Jan", surname: "Kowalski", salary: 100)
 
   def dbService = new DbService(dao)
@@ -31,6 +30,7 @@ class Test5MockVerifyWithClosure extends Specification {
       it instanceof Employee
       it.firstname == "Jan"
       it.surname == "Kowalski"
+      it.salary == 110
     } )
   }
 

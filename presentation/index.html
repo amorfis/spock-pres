@@ -66,6 +66,7 @@ def 'Should return true if number is even'() {
 
   then:
   result == true
+  result
 }
   </pre>
   <p>
@@ -76,6 +77,7 @@ def 'Should return true if number is even'() {
 <section class="slide">
   <h2>Test with mock</h2>
   <pre class="brush: groovy">
+@Test
 def 'Should return surname Stawicki if firstname is Paweł'() {
   setup:
   def Dao dao = Mock()
@@ -113,6 +115,16 @@ def 'Should return surname Stawicki if firstname is Paweł. Simplier method'() {
 </section>
 
 <section class="slide">
+    <h2>Common initialization in setup() method</h2>
+  <pre class="brush: groovy">
+def setup() {
+  dao.findByFirstname("Paweł") >> new Person(firstname: "Paweł", surname: "Stawicki")
+  dao.findByFirstname("Leszek") >> new Person(firstname: "Leszek", surname: "Gruchała")
+}
+  </pre>
+</section>
+
+<section class="slide">
   <h2>Common variables are new for each test</h2>
   <pre class="brush: groovy">
 class TestMocksRenewal extends Specification {
@@ -121,6 +133,11 @@ class TestMocksRenewal extends Specification {
   //Every test starts with counter 0.
   def counter = 0
   def Counter objectCounter = Mock()
+  </pre>
+  <h2>unless marked with @Shared</h2>
+  <pre class="brush: groovy">
+  @Shared
+  def sharedCounter = 0
   </pre>
 </section>
 

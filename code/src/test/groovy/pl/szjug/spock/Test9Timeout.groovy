@@ -12,7 +12,7 @@ class Test9Timeout extends Specification {
 
   @Test
   @Timeout(1)
-  def 'Should show nice error message when calling many methods'() {
+  def 'Should show nice error message when test timeouts'() {
     when:
     Thread.sleep(2000)
 

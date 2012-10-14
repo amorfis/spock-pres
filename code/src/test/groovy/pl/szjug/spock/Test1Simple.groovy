@@ -9,7 +9,6 @@ import spock.lang.Specification
  */
 class Test1Simple extends Specification {
 
-  //Different for every test
   def service = new NumbersService()
 
   @Test
@@ -19,6 +18,7 @@ class Test1Simple extends Specification {
 
     then:
     result == true
+    result
   }
 
   @Test
@@ -28,6 +28,7 @@ class Test1Simple extends Specification {
 
     then:
     result == false
+    !result
   }
 
 }

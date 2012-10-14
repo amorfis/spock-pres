@@ -11,7 +11,6 @@ import spock.lang.Specification
 class Test4MockReturnWithClosure extends Specification {
 
   def Dao dao = Mock()
-
   def employee = new Employee(firstname: "Jan", surname: "Kowalski", salary: 100)
 
   def dbService = new DbService(dao)

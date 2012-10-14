@@ -26,7 +26,7 @@ class Test2WithMock extends Specification {
   }
 
   @Test
-  def 'Should return surname Stawicki if firstname is Paweł. Simplier method'() {
+  def 'Should return surname Stawicki if firstname is Paweł. Return in then section.'() {
     setup:
     def Dao dao = Mock()
     def dbService = new DbService(dao)
