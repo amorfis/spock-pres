@@ -46,7 +46,7 @@
           <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>2.0.0</version>
+            <version>2.0.5</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -72,7 +72,7 @@
       <groupId>org.spockframework</groupId>
       <artifactId>spock-core</artifactId>
       <version>0.6-groovy-1.8</version>
-      <!--<version>0.7-groovy-2.0-SNAPSHOT</version>-->
+      <!--<version>0.7-groovy-2.0</version>-->
       <scope>test</scope>
     </dependency>
     <!-- Optional dependencies for using Spock -->
@@ -118,15 +118,4 @@
     <!--</pluginRepository>-->
   <!--</pluginRepositories>-->
 
-  <!--&lt;!&ndash; Only required for spock-example build &ndash;&gt;-->
-  <!--<distributionManagement>-->
-    <!--<repository>-->
-      <!--<id>foo</id>-->
-      <!--<url>file:///fake.repository.to.make.maven.happy</url>-->
-    <!--</repository>-->
-    <!--<snapshotRepository>-->
-      <!--<id>bar</id>-->
-      <!--<url>file:///fake.repository.to.make.maven.happy</url>-->
-    <!--</snapshotRepository>-->
-  <!--</distributionManagement>-->
 </project>
