@@ -29,4 +29,18 @@ class Test6Parametrized extends Specification {
     65      | false
   }
 
+  @Test
+  @Unroll
+  def 'isEven should return #isEven for #number as list'() {
+    when:
+    def result = service.isEven(number)
+
+    then:
+    result == isEven
+
+    where:
+    number << [2, 3, 65]
+    isEven << [true, false, false]
+  }
+
 }
