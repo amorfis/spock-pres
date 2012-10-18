@@ -14,10 +14,14 @@ class Test7ErrorMessages extends Specification {
   @Test
   def 'Should show nice error message when calling many methods'() {
     when:
-    def bigDecimal = new BigDecimal("100")
+    "dummy"
 
     then:
-    parseDouble(bigDecimal.doubleValue().toString()) == 1
+    parseDouble("2" + appendToDot(5)) == 1
+  }
+
+  def appendToDot(number) {
+    "." + number
   }
 
   @Test
