@@ -210,6 +210,25 @@ def 'isEven should return #isEven for #number'() {
 </section>
 
 <section class="slide">
+  <h2>Parametrization from external sources</h2>
+  <pre class="brush: groovy">
+@Test
+@Unroll
+def 'isEven should return #isEven for #number'() {
+  when:
+  def result = service.isEven(number)
+
+  then:
+  result == isEven
+
+  where:
+  number << getNumberValues()
+  isEven << getIsEvenValues()
+}
+  </pre>
+</section>
+
+<section class="slide">
   <h2>Nice error messages</h2>
   <pre class="brush: groovy">
 then:
