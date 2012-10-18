@@ -35,6 +35,13 @@
   <link rel="stylesheet" href="../deck.js/themes/transition/horizontal-slide.css">
 
   <script src="../deck.js/modernizr.custom.js"></script>
+
+  <style type="text/css">
+      .groovy {
+          color: green;
+      }
+  </style>
+
 </head>
 
 <body class="deck-container">
@@ -122,6 +129,14 @@ def setup() {
   dao.findByFirstname("Leszek") >> new Person(firstname: "Leszek", surname: "Gruchała")
 }
   </pre>
+  <p>
+    <ul>
+      <li><span class="groovy">setup()</span> before every feature method</li>
+      <li><span class="groovy">cleanup()</span> after every feature method</li>
+      <li><span class="groovy">setupSpec()</span> before the first feature method</li>
+      <li><span class="groovy">cleanupSpec()</span> after the last feature method</li>
+    </ul>
+  </p>
 </section>
 
 <section class="slide">
@@ -247,6 +262,11 @@ pineapple false
   @Test
   @Timeout(1) //In seconds
   </pre>
+</section>
+
+<section class="slide">
+    <h2>There is more</h2>
+  <a href="http://code.google.com/p/spock/">http://code.google.com/p/spock/</a>
 </section>
 
 <section class="slide">
