@@ -13,10 +13,7 @@ class Test7ErrorMessages extends Specification {
 
   @Test
   def 'Should show nice error message when calling many methods'() {
-    when:
-    "dummy"
-
-    then:
+    expect:
     parseDouble("2" + appendToDot(5)) == 1
   }
 
