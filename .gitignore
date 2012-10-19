@@ -5,3 +5,4 @@ deck.js/progress/
 *.iml
 target
 out
+.DS_Store
